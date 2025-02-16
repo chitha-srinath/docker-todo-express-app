@@ -1,0 +1,36 @@
+# Node.js dependencies (avoid copying unnecessary files)
+node_modules
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files (security risk)
+.env
+.env.*  # In case you have multiple environment files
+
+# Logs & Debugging Files
+logs
+*.log
+*.pid
+*.seed
+*.pid.lock
+coverage/
+.vscode/
+.idea/
+.DS_Store  # macOS metadata
+*.swp      # Vim swap files
+
+# Build artifacts (avoid redundant files)
+dist/
+build/
+.cache/
+.next/  # For Next.js projects
+
+# Docker-specific
+.dockerignore
+docker-compose.override.yml  # If not needed inside the image
+
+# Miscellaneous
+.git
+*.tar
+*.zip
