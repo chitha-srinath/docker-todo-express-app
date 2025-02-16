@@ -5,9 +5,9 @@
 
 ## Lessons Learned
 
-how to create docker image locally
+how to create docker image locally from a dockerfile 
 
-how to run container from image
+how to run a container from an image
 
 creating a network between containers to share resources b/w them
 
@@ -101,7 +101,15 @@ docker run --name express-todo -p 5555:5050 --env-file .env --net mongonetwork -
 
 - now u r ready to go to run the apis 
 
+- there are 2 other docker commands which are related to push local image genrated from dockerFile to docker hub registery
 
+
+ ```bash
+docker tag <local-image> <username>/<image-name>
+ ```
+ ```bash
+docker push  <username>/<image-name>
+ ```
 ## API Reference
 
 #### Get todos
