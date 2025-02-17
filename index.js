@@ -2,6 +2,7 @@ const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
 require("dotenv").config();
+const Redis = require("ioredis");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -11,6 +12,20 @@ const dbName = process.env.MONGODB_DB;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+
+// Create a Redis client and connect to the container
+const redis = new Redis({
+  host: process.env.REDIS_HOST, // Container name in the Docker network
+  port: 6379, // Default Redis port
+});
+
+
+// Test the Redis connection
+redis
+  .ping()
+  .then((result) => console.log("Redis connected:", result))
+  .catch((err) => console.error("Redis connection error:", err));
 
 // MongoDB Connection
 const client = new MongoClient(uri);
